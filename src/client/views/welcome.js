@@ -5,6 +5,13 @@ import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card';
 import { login } from '../actions';
 
 class Welcome extends Component {
+    handleLogin() {
+        const username = document.getElementById('welcome-username').value;
+        console.log('username', username);
+        if (username && 0 < username.length) {
+            this.props.dispatch(login({ username }));
+        }
+    }
     render() {
         return(
             <div style={{display: 'flex', marginTop: '32px'}}>
@@ -22,6 +29,9 @@ class Welcome extends Component {
                                 floatingLabelText="Display Name"
                             />
                         </CardText>
+                        <CardActions>
+                            <FlatButton label="Start" onTouchTap={this.handleLogin.bind(this)} />
+                        </CardActions>
                     </Card>
                 </div>
                 <div style= {{style: 1}}></div>
