@@ -1,27 +1,43 @@
-# redux-saga-beginner-tutorial
-Companion Repo for [Redux/Redux-saga beginner tutorial](https://github.com/redux-saga/redux-saga/blob/master/docs/introduction/BeginnerTutorial.md)
+# redux-saga-chat-example
 
-# Instructions
+## WORK IN PROGRESS
 
-Setup
+A chat app built with [redux-saga](https://github.com/yelouafi/redux-saga) and [Socket.IO](http://socket.io/).
+
+The app consists of two parts: [server](https://github.com/goldenforstle/Redux-Saga-Chat/tree/master/src/server) and [client](https://github.com/goldenforstle/Redux-Saga-Chat/tree/master/src/client).
+The server side, which is implemented with [koa](https://github.com/koajs/koa) + [koa-socket](https://github.com/mattstyles/koa-socket), provides Socket.IO endpoint and a (fake) DB backend.
+
+## Get Started
+
+Clone code from [github](https://github.com/goldenforstle/Redux-Saga-Chat.git) and install dependencies.
+To use koa-socket, Please make sure that you're using Node.js v4 or later.
 
 ```
-// clone the repo
-git clone https://github.com/goldenforstle/Redux-Saga-Starter.git
-
-cd redux-saga-beginner-tutorial
-
+git clone https://github.com/goldenforstle/Redux-Saga-Chat.git
+cd redux-saga-chat-example
 npm install
 ```
 
-Run the demo
+### Start server
 
 ```
 npm start
 ```
 
-Run tests
+### Start client (webpack-dev-server)
 
 ```
-npm test
+npm run client
 ```
+
+### Open `http://localhost:8080/` in 2 tabs
+
+>Notice:
+This example assume you to run on local, which means not on virtual machines
+like VMware, Virtualbox, etc. If a request doesn't reach to the server,
+please try to rewrite `localhost` to your IP or hostname in server code.
+
+## License
+
+MIT
+
