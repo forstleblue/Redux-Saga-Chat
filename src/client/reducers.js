@@ -35,6 +35,17 @@ const users = createReducer({
   }
 }, initial.users);
 
+const messages = createReducer({
+  [newMessage]: (state, payload) => {
+    const { message } = payload;
+    return {
+      ...state,
+      list: [ ...state.list, message.id ],
+      entities: { ...state.entities, [message.id]: message }
+    };
+  }
+}, initial.messages);
+
 export default combineReducers(
-  { app, users }
+  { app, users, messages }
 );

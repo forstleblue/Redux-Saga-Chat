@@ -5,11 +5,16 @@ import { Welcome, Room } from './views';
 import { logout } from './actions';
 
 class App extends Component {
+    handleLogout() {
+        this.props.dispatch(logout());
+    }
+
     render() {
         const { username } = this.props;
         let body, right;
         if(username) {
             body = <Room />;
+            right = <FlatButton label="Logout" onTouchTap={this.handleLogout.bind(this)} />;
         } else {
             body = <Welcome />
         }
@@ -23,4 +28,8 @@ class App extends Component {
     }
 }
 
-export default App;
+function select({ app }) {
+  return { ...app };
+}
+
+export default connect(select)(App);
